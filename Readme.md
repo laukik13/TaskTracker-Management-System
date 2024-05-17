@@ -57,26 +57,26 @@ To get a local copy up and running follow these simple steps.
 
 
 2. Install NPM packages
-
+    ```sh
     cd my-task-tracker
     npm install
 
 3. Set up your MongoDB database and add your MongoDB URI to the '.env' file
-
+    ```sh 
     MONGO_URI=your_mongo_uri
 
 
 ### Running the Application
 
 1. Start the backend server
-
+   ```sh
    npm run server
 
 
 2. Start the frontend development server
-
+    ```sh
     npm start
 
 ## Usage
-
-Open http://localhost:3000 to view it in the browser.
+   ```sh
+   Open http://localhost:3000 to view it in the browser.
