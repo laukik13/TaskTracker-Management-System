@@ -1,4 +1,4 @@
-# My Task Tracker
+# Task Tracker
 
 My Task Tracker is a robust task management application designed to streamline project workflows and enhance productivity. Developed with a modern tech stack, the frontend is built using React.js with Bootstrap 5 for a sleek and responsive user interface, while the backend is powered by Node.js and Express.js. MongoDB serves as the database to efficiently manage and store user data and tasks.
 
