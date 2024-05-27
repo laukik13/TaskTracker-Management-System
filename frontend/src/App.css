@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow: hidden;
+  margin: 0;
+  height: 100%;
+}
+
 .btn {
   background-color: transparent;
   border: none;
@@ -730,16 +736,84 @@ border-radius: 5px;
 
 /* loginpage */
 
-.login-main-wrapper{
+/* .login-main-wrapper{
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: whitesmoke;
+    background-image: url("../public/Images/loginbg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+@keyframes zoomInBackground {
+  0% {
+      transform: scale(1);
+  }
+  100% {
+      transform: scale(1.2);
+  }
 }
 
-.login-inner-wrapper{
+/* .login-main-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("../public/Images/loginbg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: zoomInBackground 5s ease forwards;
+  
+}
+
+.login-main-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  transform: scale(1);
+  animation: zoomInBackground 5s ease forwards;
+} */
+
+.login-main-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Add this to position the pseudo-element correctly */
+  overflow: hidden; /* Prevent overflow within the container */
+  /* background-color: whitesmoke; */
+}
+
+.login-main-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../public/Images/loginbg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  transform-origin: center; /* Ensure zoom is centered */
+  animation: zoomInBackground 5s ease forwards; /* Sync the animation with the parent element */
+  filter: blur(3px);
+}
+
+.login-inner-wrapper {
   width: 700px;
   height: 400px;
   border-radius: 10px;
@@ -748,7 +822,30 @@ border-radius: 5px;
   justify-content: center;
   align-items: center;
   background-color: white;
+  z-index: 1; /* Ensure this is above the pseudo-element */
+  position: relative; /* Ensure it is positioned within the flex container */
 }
+
+.bg-layer{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.055);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* .login-inner-wrapper{
+  width: 700px;
+  height: 400px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+} */
 .login-logo{
   position: relative;
   width: 100%;

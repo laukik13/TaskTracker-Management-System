@@ -108,7 +108,7 @@ const CommentContainer = (props) => {
   //        return v.reply
   //     })
 
-  // console.log(getData);
+  // console.log(props);
 
   return (
     <>

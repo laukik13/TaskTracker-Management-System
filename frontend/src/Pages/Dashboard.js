@@ -169,8 +169,9 @@ const Dashboard = () => {
         },
       })
       .then((res) => {
-        // console.log(res.data.data);
+        console.log(res.data.data);
         setFilterComment(res.data.data);
+
       })
       .catch((err) => {
         console.error(err);

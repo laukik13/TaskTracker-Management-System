@@ -48,9 +48,9 @@ const LoginPage = () => {
         role:""
     },
     validationSchema:Yup.object({
-      email: Yup.string().required("Required"),
-      password: Yup.string().required("Required").min(6, 'Too Short!'),
-      role: Yup.string().required("Required")
+      email: Yup.string().required("Required?"),
+      password: Yup.string().required("Required?").min(6, 'Too Short!'),
+      role: Yup.string().required("Required?")
     }),
     onSubmit:(value)=>{
 
@@ -89,7 +89,8 @@ const LoginPage = () => {
   return (
     <>
       <div className="login-main-wrapper">
-        <div className="login-inner-wrapper shadow">
+       <div className="bg-layer">
+       <div className="login-inner-wrapper shadow">
           <div className="login-logo">
             <h3>
               <img className="logo" src="../Images/logo1.png" alt="" />
@@ -104,26 +105,27 @@ const LoginPage = () => {
                         return false;
                       }}>
               <div className="form-wrapper">
+              <div className="d-flex flex-column align-items-end">
+              {validation.touched.email && validation.errors.email ? (
+                      <div className="error-message">{validation.errors.email}</div>
+                        ) : null}
                 <div className="form-inner-wrapper">
                   <label style={{paddingRight: "28px"}}>
                     Email
-                  </label>
-                  <div className="d-flex flex-column">
+                  </label> 
                   <input type="email" name="email"  placeholder="" value={validation.values.email || ""} onChange={validation.handleChange} onBlur={validation.handleBlur} />
-                  {validation.touched.email && validation.errors.email ? (
-                      <div className="error-message">{validation.errors.email}</div>
-                        ) : null}
                   </div>
                 </div>
+                <div className="d-flex flex-column align-items-end">
+                  {validation.touched.password && validation.errors.password ? (
+                      <div className="error-message">{validation.errors.password}</div>
+                        ) : null}
                 <div className="form-inner-wrapper">
                   <label>
                     Password
                   </label>
-                  <div className="d-flex flex-column">
+                  
                   <input type="password" name="password" placeholder="" value={validation.values.password || ""} onChange={validation.handleChange} onBlur={validation.handleBlur}/>
-                  {validation.touched.password && validation.errors.password ? (
-                      <div className="error-message">{validation.errors.password}</div>
-                        ) : null}
                   </div>
                 </div>
                 <div className="d-flex flex-column align-items-center">
@@ -184,6 +186,7 @@ const LoginPage = () => {
             </form>
           </div>
         </div>
+       </div>
       </div>
     </>
   );
